@@ -14,7 +14,7 @@ export type Web3Params = {
 }
 
 export type Web3State = {
-   isLoading: boolean //true while loading web3state
+   isLoading: boolean
 } & Web3Params
 
 export const createDefaultState = () => {
