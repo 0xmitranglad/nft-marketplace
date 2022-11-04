@@ -40,6 +40,9 @@ export const loadContract = async (
    const Artifact = await res.json()
 
    if (Artifact.networks[NETWORK_ID].address) {
+      //   console.log(
+      //      `Contract address: ${Artifact.networks[NETWORK_ID].address} found on NetworkId ${NETWORK_ID}`
+      //   )
       const contract = new ethers.Contract(
          Artifact.networks[NETWORK_ID].address,
          Artifact.abi,
@@ -48,6 +51,7 @@ export const loadContract = async (
 
       return contract
    } else {
+      //   console.log(`No Contract address found on NetworkId ${NETWORK_ID}`)
       return Promise.reject(`Contract [${name}] cannot be found`)
    }
 }

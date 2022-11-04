@@ -1,20 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
-
 import type { NextPage } from "next"
-import { useWeb3 } from "@providers/web3"
 import { BaseLayout, NftList } from "@ui"
-
 import nfts from "../content/meta.json"
 import { NftMeta } from "@_types/nft"
+import { useWeb3 } from "@providers/web3"
 
 const Home: NextPage = () => {
    const { provider, contract } = useWeb3()
    console.log("provider-->", provider)
-   console.log("contract-->", contract)
+   //    console.log("contract-->", contract)
 
    const getNftInfo = async () => {
-      console.log(await contract!.name())
-      console.log(await contract!.symbol())
+      //   console.log("name -->", await contract!.name())
+      //   console.log("symbol -->", await contract!.symbol())
    }
 
    if (contract) {
@@ -23,7 +21,7 @@ const Home: NextPage = () => {
 
    const getAccounts = async () => {
       const accounts = await provider!.listAccounts()
-      console.log(accounts[1])
+      console.log("accounts[1] -->", accounts[0])
    }
 
    if (provider) {
